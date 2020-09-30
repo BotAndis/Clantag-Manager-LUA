@@ -18,6 +18,14 @@ Menu.Checkbox("Enable [VALVE] Clantag", "EnableValve", tagHandler[7].enabled);
 Menu.Checkbox("Enable Animated Numbers Clantag", "EnableAnimatedNumbers", tagHandler[6].enabled);
 Menu.Checkbox("Enable Clock Clantag", "EnableClockTag", false);
 Menu.Spacing()
+Menu.Text("Change Clantag On Key")
+Menu.Checkbox("Enable Change Clantag on Keypress", "EnableKeypress", false);
+Menu.InputText("W", "KeypressW");
+Menu.InputText("A", "KeypressA");
+Menu.InputText("S", "KeypressS");
+Menu.InputText("D", "KeypressD");
+Menu.InputText("Mouse1", "KeypressMouse1");
+Menu.InputText("Mouse2", "KeypressMouse2");
 
 local ClanTags = {
     ['gamesense'] = {
@@ -215,6 +223,11 @@ Hack.RegisterCallback("CreateMove", function()
         local time = "[" .. GetTimeHour() .. ":" GetTimeMin() .. ":" .. GetTimeSec .. "]"
         Utils.SetClantag(time);
     end
+    if(not tagInfo['enabled'] and not Menu.GetBool("EnableClockTag") and Menu.GetBool("EnableKeypress")) then
+        if(Menu.GetString("KeypressW") ~= "" and InputSys.IsKeyDown(87)) then Utils.SetClantag(Menu.GetString("KeypressW")) end
+        if(Menu.GetString("KeypressA") ~= "" and InputSys.IsKeyDown(65)) then Utils.SetClantag(Menu.GetString("KeypressA")) end
+        if(Menu.GetString("KeypressS") ~= "" and InputSys.IsKeyDown(83)) then Utils.SetClantag(Menu.GetString("KeypressS")) end
+        if(Menu.GetString("KeypressD") ~= "" and InputSys.IsKeyDown(68)) then Utils.SetClantag(Menu.GetString("KeypressD")) end
 end)
 
 --[[
