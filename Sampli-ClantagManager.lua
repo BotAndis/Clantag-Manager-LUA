@@ -218,10 +218,25 @@ Hack.RegisterCallback("PaintTraverse", function()
     end
 end)
 
+local clockInfo = {
+    ['hour'] = GetTimeHour(),
+    ['minute'] = GetTimeMin(),
+    ['second'] = GetTimeSec()
+}
+
 Hack.RegisterCallback("CreateMove", function()
     if(not tagInfo['enabled'] and Menu.GetBool("EnableClockTag")) then
-        local time = "[" .. GetTimeHour() .. ":" GetTimeMin() .. ":" .. GetTimeSec .. "]"
+        if(clockInfo['second'] == 60) then
+            clockInfo['second'] = 0;
+            clockInfo['minute'] = clockInfo['minute'] + 1;
+        end
+        if(clockInfo['minute'] == 60) then
+            clockInfo['minute'] = 0;
+            clockInfo['hour'] = clockInfo['hour'] + 1;
+        end
+        local time = "[" .. clockInfo['hour'] .. ":" .. clockInfo['minute'] .. ":" .. clockInfo['second'] .. "]"
         Utils.SetClantag(time);
+        clockInfo['second'] = clockInfo['second'] + 1;
     end
     if(not tagInfo['enabled'] and not Menu.GetBool("EnableClockTag") and Menu.GetBool("EnableKeypress")) then
         if(Menu.GetString("KeypressW") ~= "" and InputSys.IsKeyDown(87)) then Utils.SetClantag(Menu.GetString("KeypressW")) end
