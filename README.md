@@ -4,7 +4,7 @@ With the clantag manager lua, you are able to choose from 8 different clan tags,
 
 #### The clock clantag will be coming in the next interium update, as Nicel will be adding a new function which makes the tag possible.
 
-I to keep on adding more things to this in the future, and all criticism or suggestions for the LUA are welcome.
+I plan to keep on adding more things to this in the future, and all criticism or suggestions for the LUA are welcome.
 
 ### **Screenshot of the LUA menu:**
 ![Screenshot of the LUA menu](https://i.gyazo.com/8e181637129e9a3ffc154d04de391b7f.png)
