@@ -10,3 +10,4 @@ I plan on adding more things to this in the future, and all criticism or suggest
 ![Screenshot of the LUA menu](https://i.gyazo.com/45e51934d9c97f7999a9bda003c68e92.png)
 
 ## **[DOWNLOAD](https://anonfiles.com/30K5z0f8p3/Sampli-ClantagManager_lua)**
+
